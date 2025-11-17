@@ -2,7 +2,7 @@ interface UploadStrategy {
   upload(file: any): string;
 }
 
-class LocalUpload implements UploadStrategy{
+class LocalUpload implements UploadStrategy {
   upload(file: any): string {
    return "/uploads/" + file.filename;
   }
@@ -19,7 +19,7 @@ class UploadService {
     private localUpload: LocalUpload,
     private s3Upload: S3Upload){}
 
-  getStrategy(type: string): UploadStrategy{
+  getStrategy(type: string): UploadStrategy {
     switch(type){
       case 'local':
         return this.localUpload
